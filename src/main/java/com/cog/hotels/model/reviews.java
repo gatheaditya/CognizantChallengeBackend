@@ -13,9 +13,7 @@ public class reviews {
 	private int ratings;
 	private String text;
 	private String title;
-	private String username;
-	  
-	
+	private String username;	
 	private hotel hotel;
 	public reviews()
 	{
