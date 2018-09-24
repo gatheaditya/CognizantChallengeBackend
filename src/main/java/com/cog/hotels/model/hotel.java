@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="hotels_final")
+@Table(name="hotel_data")
 public class hotel implements Serializable{
 	
 	/**
@@ -25,6 +25,7 @@ public class hotel implements Serializable{
 	@Id
 	private int id;	
 	private String address;	
+	private String catogories;
 	private String city;	
 	private String name;
 	private double lat;	
@@ -90,6 +91,12 @@ public class hotel implements Serializable{
 	}
 	public void setReviews(reviews reviews) {
 		this.reviews = reviews;
+	}
+	public String getCatogories() {
+		return catogories;
+	}
+	public void setCatogories(String catogories) {
+		this.catogories = catogories;
 	}
 
 }

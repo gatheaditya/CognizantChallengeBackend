@@ -11,6 +11,7 @@ import com.cog.hotels.Repository.hotelRepository;
 import com.cog.hotels.model.hotel;
 
 @Service
+
 public class hotelService  {
 	
 	@Autowired
