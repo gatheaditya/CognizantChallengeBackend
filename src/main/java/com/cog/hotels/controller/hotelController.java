@@ -22,7 +22,7 @@ public class hotelController {
 	
 	@Autowired
 	private hotelService hs;
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody Page<hotel> get(@PathVariable("pageid") int pageid)
 	{
 		return hs.findAll(new PageRequest(pageid,12));
@@ -30,38 +30,38 @@ public class hotelController {
 	}
 	
 	@GetMapping("/getAllhotels")
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody List<hotel> getHotels()
 	{
 		return hs.getHotels();
 	}
 	@GetMapping("/getAllcities")
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody List<String> getCities()
 	{
 		return hs.findDistinctCity();
 	}
 	
 	@GetMapping("/gethotels/{id}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
 	return hs.findAll(new PageRequest(id,10));	
 	}
 	@GetMapping("/gethotelsbyCity/{name}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody List<hotel> getHotelbyCity(@PathVariable String name)
 	{
 		return hs.findByCity(name);
 	}
 	@GetMapping("/")
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody String welcome()
 	{
 		return "welcome";
 	}
 	@GetMapping("/gethotelDetails/{id}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io/hotelBooking/", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody hotel getHotelDetails(@PathVariable int id)
 	{
 		return hs.findById(id);
