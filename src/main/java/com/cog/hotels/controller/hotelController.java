@@ -29,11 +29,17 @@ public class hotelController {
 		
 	}
 	
-	@GetMapping("/gethotels")
+	@GetMapping("/getAllhotels")
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	public @ResponseBody List<hotel> getHotels()
 	{
 		return hs.getHotels();
+	}
+	@GetMapping("/getAllcities")
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	public @ResponseBody List<String> getCities()
+	{
+		return hs.findDistinctCity();
 	}
 	
 	@GetMapping("/gethotels/{id}")

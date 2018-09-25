@@ -35,5 +35,9 @@ public class hotelService  {
 		// TODO Auto-generated method stub
 		return hr.findByCity(name);
 	}
+	public List<String> findDistinctCity() {
+		// TODO Auto-generated method stub
+		return hr.findDistinctCity();
+	}
 	
 }

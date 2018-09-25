@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,8 @@ public interface hotelRepository extends CrudRepository<hotel, Long> {
 	Page<hotel> findAll(Pageable pageable);
      public hotel findById(int hid);
      public List<hotel> findByCity(String name);
+     @Query("select Distinct city from hotel")
+     public List<String> findDistinctCity();
 	
 
 }
