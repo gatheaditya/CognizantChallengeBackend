@@ -46,7 +46,7 @@ public class hotelController {
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
-	return hs.findAll(new PageRequest(id,10));	
+	return hs.findAll(new PageRequest(id,12));	
 	}
 	@GetMapping("/gethotelsbyCity/{name}")
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
