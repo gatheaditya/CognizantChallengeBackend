@@ -39,24 +39,18 @@ public class hotelController {
 		return hs.getHotels();
 	}
 	@GetMapping("/getAllcities")
-<<<<<<< HEAD
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
-	@Cacheable(value="hotelsCache")
-=======
+
 	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
->>>>>>> branch 'master' of https://github.com/gatheaditya/CognizantChallengeBackend.git
-	public @ResponseBody List<String> getCities()
+	@Cacheable(value="hotelsCache")
+public @ResponseBody List<String> getCities()
 	{
 		return hs.findDistinctCity();
 	}
 	
 	@GetMapping("/gethotels/{id}")
-<<<<<<< HEAD
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+
 	@Cacheable(value="hotelsByIdCache")
-=======
 	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
->>>>>>> branch 'master' of https://github.com/gatheaditya/CognizantChallengeBackend.git
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
 	return hs.findAll(new PageRequest(id,12));	
@@ -80,7 +74,7 @@ public class hotelController {
 		return hs.findById(id);
 	}
 	@GetMapping("/getProvinceandcount")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public List<countProvince> test()
 	{	
 			
