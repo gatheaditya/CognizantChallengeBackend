@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.cog.hotels.Repository.hotelRepository;
+import com.cog.hotels.model.countProvince;
 import com.cog.hotels.model.hotel;
 
 @Service
@@ -38,6 +39,12 @@ public class hotelService  {
 	public List<String> findDistinctCity() {
 		// TODO Auto-generated method stub
 		return hr.findDistinctCity();
+	}
+	
+	public List<countProvince> getProvinceCount()
+	{
+		return hr.findCityAndProvince();
+		
 	}
 	
 }

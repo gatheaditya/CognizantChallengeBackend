@@ -2,7 +2,9 @@ package com.cog.hotels.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cog.hotels.model.countProvince;
 import com.cog.hotels.model.hotel;
 import com.cog.hotels.service.hotelService;
 
@@ -37,6 +40,7 @@ public class hotelController {
 	}
 	@GetMapping("/getAllcities")
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@Cacheable(value="hotelsCache")
 	public @ResponseBody List<String> getCities()
 	{
 		return hs.findDistinctCity();
@@ -44,6 +48,7 @@ public class hotelController {
 	
 	@GetMapping("/gethotels/{id}")
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@Cacheable(value="hotelsByIdCache")
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
 	return hs.findAll(new PageRequest(id,12));	
@@ -66,4 +71,13 @@ public class hotelController {
 	{
 		return hs.findById(id);
 	}
+	@GetMapping("/getProvinceandcount")
+	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	public List<countProvince> test()
+	{	
+			
+		return  hs.getProvinceCount();		
+		
+	}
+	
 }
