@@ -39,7 +39,7 @@ public class hotelController {
 		return hs.getHotels();
 	}
 	@GetMapping("/getAllcities")
-	@Cacheable(value="hotelsCache")
+	
 	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	
 public @ResponseBody List<String> getCities()
