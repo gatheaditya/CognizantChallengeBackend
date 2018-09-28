@@ -17,7 +17,7 @@ import com.cog.hotels.model.hotel;
 
 @Service
 public interface hotelRepository extends CrudRepository<hotel, Long> {
-	@Cacheable(value="hotelsCache")
+	
 	public List<hotel> findAll();
 	Page<hotel> findAll(Pageable pageable);
      public hotel findById(int hid);
