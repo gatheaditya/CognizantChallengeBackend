@@ -33,7 +33,7 @@ public class hotelController {
 	}
 	
 	@GetMapping("/getAllhotels")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 5000)
 	public @ResponseBody List<hotel> getHotels()
 	{
 		return hs.getHotels();
