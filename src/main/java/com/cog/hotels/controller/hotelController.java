@@ -25,7 +25,7 @@ public class hotelController {
 	
 	@Autowired
 	private hotelService hs;
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody Page<hotel> get(@PathVariable("pageid") int pageid)
 	{
 		return hs.findAll(new PageRequest(pageid,12));
@@ -33,40 +33,48 @@ public class hotelController {
 	}
 	
 	@GetMapping("/getAllhotels")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody List<hotel> getHotels()
 	{
 		return hs.getHotels();
 	}
 	@GetMapping("/getAllcities")
+<<<<<<< HEAD
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@Cacheable(value="hotelsCache")
+=======
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+>>>>>>> branch 'master' of https://github.com/gatheaditya/CognizantChallengeBackend.git
 	public @ResponseBody List<String> getCities()
 	{
 		return hs.findDistinctCity();
 	}
 	
 	@GetMapping("/gethotels/{id}")
+<<<<<<< HEAD
 	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
 	@Cacheable(value="hotelsByIdCache")
+=======
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+>>>>>>> branch 'master' of https://github.com/gatheaditya/CognizantChallengeBackend.git
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
 	return hs.findAll(new PageRequest(id,12));	
 	}
 	@GetMapping("/gethotelsbyCity/{name}")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody List<hotel> getHotelbyCity(@PathVariable String name)
 	{
 		return hs.findByCity(name);
 	}
 	@GetMapping("/")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody String welcome()
 	{
 		return "welcome";
 	}
 	@GetMapping("/gethotelDetails/{id}")
-	@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 	public @ResponseBody hotel getHotelDetails(@PathVariable int id)
 	{
 		return hs.findById(id);
