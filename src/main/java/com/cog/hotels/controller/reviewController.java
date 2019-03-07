@@ -15,11 +15,12 @@ import com.cog.hotels.model.reviews;
 import com.cog.hotels.service.reviewService;
 
 @RestController
+@CrossOrigin
 public class reviewController {
 	@Autowired
 	private reviewService rr;
 	
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	
 	public @ResponseBody Page<reviews> get(@PathVariable("pageid") int pageid)
 	{
 		return rr.findAll(new PageRequest(pageid,12));
@@ -34,14 +35,14 @@ public class reviewController {
 	}
 	
 	@GetMapping("/getreviews/{id}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	
 	public @ResponseBody Page<reviews> getHotel(@PathVariable int id)
 	{
 	return rr.findAll(new PageRequest(id,10));	
 	}
 	
 	@GetMapping("/getreviewsDetails/{id}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	
 	public @ResponseBody reviews getReviewsDetails(@PathVariable int id)
 	{
 		return rr.findById(id);
