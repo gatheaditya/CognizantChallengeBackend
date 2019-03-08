@@ -31,7 +31,7 @@ public class hotelController {
 	@PostConstruct
 	public void init()
 	{
-		for(int i=0;i<10000;i++)
+		for(int i=0;i<1000000;i++)
 			{
 				li.add(new Random(100).nextInt());
 			}
@@ -90,15 +90,21 @@ public @ResponseBody List<String> getCities()
 	@GetMapping("/StreamPerformance")	
 	public long  StreamPerformance()
 	{				
-	
-			
 		
 		long start = System.currentTimeMillis();
 		long count =li.stream().count();		
 		long end =System.currentTimeMillis();
 		return end-start;
 	}
-	
+	@GetMapping("/ParllelStreamPerformance")	
+	public long  ParllelStreamPerformance()
+	{				
+		
+		long start = System.currentTimeMillis();
+		long count =li.parallelStream().count();		
+		long end =System.currentTimeMillis();
+		return end-start;
+	}
 	
 	
 }
