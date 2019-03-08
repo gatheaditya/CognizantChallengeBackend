@@ -21,11 +21,13 @@ import com.cog.hotels.service.hotelService;
 
 
 @RestController
+@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
 public class hotelController {
 	
 	@Autowired
 	private hotelService hs;
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	private List<Integers> li = new ArrayList<>();
+	
 	public @ResponseBody Page<hotel> get(@PathVariable("pageid") int pageid)
 	{
 		return hs.findAll(new PageRequest(pageid,12));
@@ -33,14 +35,14 @@ public class hotelController {
 	}
 	
 	@GetMapping("/getAllhotels")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 5000)
+	
 	public @ResponseBody List<hotel> getHotels()
 	{
 		return hs.getHotels();
 	}
 	@GetMapping("/getAllcities")
 	
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	
 	
 public @ResponseBody List<String> getCities()
 	{
@@ -50,36 +52,42 @@ public @ResponseBody List<String> getCities()
 	@GetMapping("/gethotels/{id}")
 
 	@Cacheable(value="hotelsByIdCache")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
 	return hs.findAll(new PageRequest(id,12));	
 	}
-	@GetMapping("/gethotelsbyCity/{name}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	@GetMapping("/gethotelsbyCity/{name}")	
 	public @ResponseBody List<hotel> getHotelbyCity(@PathVariable String name)
 	{
 		return hs.findByCity(name);
 	}
-	@GetMapping("/")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	@GetMapping("/")	
 	public @ResponseBody String welcome()
 	{
 		return "welcome";
 	}
-	@GetMapping("/gethotelDetails/{id}")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	@GetMapping("/gethotelDetails/{id}")	
 	public @ResponseBody hotel getHotelDetails(@PathVariable int id)
 	{
 		return hs.findById(id);
 	}
-	@GetMapping("/getProvinceandcount")
-	@CrossOrigin(origins = "https://gatheaditya.github.io", maxAge = 3600)
+	@GetMapping("/getProvinceandcount")	
 	public List<countProvince> test()
-	{	
-			
+	{				
 		return  hs.getProvinceCount();		
 		
 	}
+	@GetMapping("/StreamPerformance")	
+	public int  StreamPerformance()
+	{				
+			for(int i=0;i<10000;i++)
+			{
+				li.add(new Random(100).nextInt());
+			}
+		return li.size();
+	}
+	
+	
 	
 }
