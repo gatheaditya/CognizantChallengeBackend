@@ -79,7 +79,7 @@ public @ResponseBody List<String> getCities()
 		
 	}
 	@GetMapping("/StreamPerformance")	
-	public int  StreamPerformance()
+	public long  StreamPerformance()
 	{		
 		
 	
@@ -89,7 +89,7 @@ public @ResponseBody List<String> getCities()
 			}
 		return li.size();
 		long start = System.currentTimeMillis();
-		int count =li.stream().count();		
+		long count =li.stream().count();		
 		long end =System.currentTimeMillis();
 		return count;
 	}
