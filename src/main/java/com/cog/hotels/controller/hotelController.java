@@ -89,7 +89,7 @@ public @ResponseBody List<String> getCities()
 			}
 		return li.size();
 		long start = System.currentTimeMillis();
-		int count =li.Stream().count();		
+		int count =li.stream().count();		
 		long end =System.currentTimeMillis();
 		return count;
 	}
