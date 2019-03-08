@@ -28,7 +28,7 @@ public class hotelController {
 	private hotelService hs;
 	private List<Integer> li = new ArrayList<>();
 	
-	@Postconstruct
+	@PostConstruct
 	public void init()
 	{
 		for(int i=0;i<10000;i++)
