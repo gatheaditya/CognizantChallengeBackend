@@ -80,14 +80,13 @@ public @ResponseBody List<String> getCities()
 	}
 	@GetMapping("/StreamPerformance")	
 	public long  StreamPerformance()
-	{		
-		
+	{				
 	
 			for(int i=0;i<10000;i++)
 			{
 				li.add(new Random(100).nextInt());
 			}
-		return li.size();
+		
 		long start = System.currentTimeMillis();
 		long count =li.stream().count();		
 		long end =System.currentTimeMillis();
