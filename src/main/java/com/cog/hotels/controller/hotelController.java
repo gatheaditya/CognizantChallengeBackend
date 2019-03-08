@@ -2,7 +2,7 @@ package com.cog.hotels.controller;
 
 import java.util.*;
 
-
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -27,6 +27,15 @@ public class hotelController {
 	@Autowired
 	private hotelService hs;
 	private List<Integer> li = new ArrayList<>();
+	
+	@Postconstruct
+	public void init()
+	{
+		for(int i=0;i<10000;i++)
+			{
+				li.add(new Random(100).nextInt());
+			}
+	}
 	
 	public @ResponseBody Page<hotel> get(@PathVariable("pageid") int pageid)
 	{
@@ -82,15 +91,12 @@ public @ResponseBody List<String> getCities()
 	public long  StreamPerformance()
 	{				
 	
-			for(int i=0;i<10000;i++)
-			{
-				li.add(new Random(100).nextInt());
-			}
+			
 		
 		long start = System.currentTimeMillis();
 		long count =li.stream().count();		
 		long end =System.currentTimeMillis();
-		return count;
+		return end-start;
 	}
 	
 	
