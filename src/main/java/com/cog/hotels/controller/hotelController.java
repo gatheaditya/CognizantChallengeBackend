@@ -26,7 +26,7 @@ public class hotelController {
 	
 	@Autowired
 	private hotelService hs;
-	private List<Integers> li = new ArrayList<>();
+	private List<Integer> li = new ArrayList<>();
 	
 	public @ResponseBody Page<hotel> get(@PathVariable("pageid") int pageid)
 	{
