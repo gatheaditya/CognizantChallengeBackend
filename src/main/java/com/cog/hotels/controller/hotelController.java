@@ -79,7 +79,7 @@ public @ResponseBody List<String> getCities()
 		return "welcome";
 	}
 
-	@GetMapping("/")
+	@GetMapping("/dbConnectiontest")
 	public @ResponseBody String dbConnectiontest()
 	{
 		return jdbcConn;
