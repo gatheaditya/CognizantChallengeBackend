@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,6 +28,9 @@ public class hotelController {
 	@Autowired
 	private hotelService hs;
 	private List<Integer> li = new ArrayList<>();
+
+	@Value("${JDBC_DATABASE_URL}")
+	private String jdbcConn;
 	
 	@PostConstruct
 	public void init()
@@ -59,9 +63,7 @@ public @ResponseBody List<String> getCities()
 	}
 	
 	@GetMapping("/gethotels/{id}")
-
 	@Cacheable(value="hotelsByIdCache")
-	
 	public @ResponseBody Page<hotel> getHotel(@PathVariable int id)
 	{
 	return hs.findAll(new PageRequest(id,12));	
@@ -76,6 +78,14 @@ public @ResponseBody List<String> getCities()
 	{
 		return "welcome";
 	}
+
+	@GetMapping("/")
+	public @ResponseBody String dbConnectiontest()
+	{
+		return jdbcConn;
+	}
+
+
 	@GetMapping("/gethotelDetails/{id}")	
 	public @ResponseBody hotel getHotelDetails(@PathVariable int id)
 	{
